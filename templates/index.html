@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask UI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to Flask UI!</h1>
+    <p>This is a basic HTML page served by Flask.</p>
+    <a href="{{ url_for('get_data') }}">Go to Data Page</a>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

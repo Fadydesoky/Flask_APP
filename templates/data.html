@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Data from SQL Server</h1>
+    <ul>
+    {% for row in rows %}
+        <li>{{ row.column_name }}</li> <!-- استبدل 'column_name' باسم العمود الفعلي -->
+    {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('index') }}">Go Back</a>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

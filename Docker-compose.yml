@@ -1,0 +1,21 @@
+version: '3'
+services:
+  flask-api:
+    build: .
+    ports:
+      - "5000:5000" # ربط المنفذ 5000 في الحاوية مع المنفذ 5000 في جهازك المحلي
+    networks:
+      - Monitoring  
+    environment:
+      - FLASK_APP=app.py # تحديد اسم التطبيق
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest # استخدام صورة رسمية لـ SQL Server
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=FadyDesoky123@password # تأكد من تغيير كلمة المرور إلى كلمة قوية
+    ports:
+      - "1433:1433" # ربط المنفذ 1433 في الحاوية مع المنفذ 1433 في جهازك المحلي
+    networks:
+      - Monitoring
+networks:
+  Monitoring:
